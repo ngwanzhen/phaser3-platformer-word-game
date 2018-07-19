@@ -1,6 +1,9 @@
 {
   "name": "words",
   "version": "1.0.0",
+  "engines": {
+    "node": "9.4.0"
+  },
   "description": "Phaser 3 game",
   "main": "js/game.js",
   "author": "wz",
@@ -8,7 +11,6 @@
   "scripts": {
     "start": "webpack-dev-server",
     "build": "webpack",
-    "heroku-postbuild": "yarn build",
     "start:prod": "node server"
   },
   "devDependencies": {
