@@ -31,7 +31,6 @@ export class ScrambleScene extends Phaser.Scene {
     })
 
     // add life
-    // this.player = this.physics.add.sprite(50, this.sys.game.config.height - 100, 'player');
     let group = this.add.group({
       key: 'player',
       repeat: this.life - 1,
@@ -42,11 +41,8 @@ export class ScrambleScene extends Phaser.Scene {
       }
     });
     this.dogs = group.getChildren();
-    // let dog = Phaser.Utils.Array.RemoveRandomElement(this.dogs);
 
-    // add spaces according to length of word
-
-    // show text typed
+    // instructions & show text typed
     this.add.text(305, 93, 'Type the letters in the right order to form a word', {
       fontSize: '32px',
       fill: 'white'
@@ -55,10 +51,6 @@ export class ScrambleScene extends Phaser.Scene {
       fontSize: '64px',
       fill: 'white'
     });
-    // this.playerTyped.forEach((e) => {
-    //   new Alpha(this, null, x, centerY - 100, e, false)
-    //   x += 120
-    // })
 
     // adding keyboard input
     let uniquePlayerCollect = this.uniq(this.playerCollect)
@@ -81,7 +73,6 @@ export class ScrambleScene extends Phaser.Scene {
     // if length of player input is = length of word, check for win this.checkSequence
     if (this.life === 0) {
       console.log('gameOver');
-      // this.player.anims.play('died', true);
       this.add.image(770, 410, 'gameOver')
     }
   }
@@ -98,7 +89,6 @@ export class ScrambleScene extends Phaser.Scene {
       console.log(this.dogs.length);
       if (dog) {
         dog.destroy();
-        // dog.anims.play('died', true);
       } else {
         console.log('no dog');
       }

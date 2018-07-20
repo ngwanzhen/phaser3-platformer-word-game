@@ -110,16 +110,6 @@ export class StartScene extends Phaser.Scene {
     this.instructionsBk.destroy()
   }
   update() {
-    // this.input.on('pointerdown', () => {
-    //   this.gameOver = true
-    //   this.sys.game.playerCollect = this.playerCollect.filter(Boolean)
-    //   this.sys.game.score = this.score
-    //   this.scene.start('scramble');
-    // });
-    // this.input.on('pointerdown', () => {
-    //   this.startGame()
-    // });
-
     if (!this.gameOver) {
       if (this.cursors.left.isDown) {
         // if the left arrow key is down
@@ -155,15 +145,6 @@ export class StartScene extends Phaser.Scene {
 
   chkSequence() {
     let playerCollectLength = this.playerCollect.filter(Boolean).length
-    // check alpha collected in sequence
-    // let chkArr = this.alphaArr.slice(0, playerCollectLength)
-    // if (JSON.stringify(this.playerCollect.filter(Boolean)) == JSON.stringify(chkArr.filter(Boolean))) {
-    //   this.collectedText.setText('Letters: ' + this.playerCollect.filter(Boolean).join('-'))
-    // } else {
-    //   this.gameLost()
-    // }
-
-    // doesn't matter sequence
     this.collectedText.setText('Letters: ' + this.playerCollect.filter(Boolean).join('-'))
 
     //check win
@@ -211,26 +192,6 @@ export class StartScene extends Phaser.Scene {
 
 
   makeAlpha(word) {
-    // hard coded positions
-    // let pos = [{
-    //   x: 410,
-    //   y: 740
-    // }, {
-    //   x: 640,
-    //   y: 460
-    // }, {
-    //   x: 1240,
-    //   y: 530
-    // }, {
-    //   x: 1050,
-    //   y: 168
-    // }]
-
-    // for (let i = 0; i < this.alphaArr.length; i++) {
-    //   new Alpha(this, null, pos[i].x, pos[i].y, this.alphaArr[i], this.score)
-    // }
-    // this.alphaArr = word.split('')
-
     let alphaPosXArr = []
     this.sys.game.score = 100
     console.log(this.sys.game.score);
@@ -258,7 +219,6 @@ export class StartScene extends Phaser.Scene {
     let lengthAlphaTile = 80 / 2
     let minX = x - lengthAlphaTile
     let maxX = x + lengthAlphaTile
-    // good stuff! some breaks the loop whenever one returns true. note need to return the loop as well else chkOverlap returns undefined!
     return alphaPosXArr.some((e) => {
       let clash = (minX).between(e - lengthAlphaTile, e + lengthAlphaTile) || (maxX).between(e - lengthAlphaTile, e + lengthAlphaTile)
       console.log('clash', clash)
@@ -273,9 +233,7 @@ export class StartScene extends Phaser.Scene {
     this.bomb = this.bombs.create(x, y, 'bomb').setScale(0.15);
     this.bomb.setBounce(1, 1);
     this.bomb.setCollideWorldBounds(true);
-    // this.bomb.setVelocity(Phaser.Math.Between(-200, 200), 20);
     this.bomb.setVelocity(250, 250);
-    // this.bomb.body.gravity.y = 400;
     this.bomb.allowGravity = false;
     this.bombMade += 1;
   }
