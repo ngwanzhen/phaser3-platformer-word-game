@@ -5,7 +5,6 @@
     "node": "9.4.0"
   },
   "description": "Phaser 3 game",
-  "main": "js/game.js",
   "author": "wz",
   "license": "MIT",
   "scripts": {

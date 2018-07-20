@@ -17,7 +17,7 @@ export class StartScene extends Phaser.Scene {
     this.scoreText;
     this.bombs;
     this.bombMade = 0;
-    this.bombLevel = 1;
+    this.bombLevel = 3;
     this.gameOver;
     this.instructions;
   }
